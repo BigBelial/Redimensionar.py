@@ -21,7 +21,7 @@ class RedimensionadorImagenes:
     def crear_interfaz(self):
         # Título
         titulo = tk.Label(self.root, text="🖼️ Redimensionador de Imágenes", 
-                         font=('Arial', 18, 'bold'), bg='#f0f0f0', fg='#2c3e50')
+                        font=('Arial', 18, 'bold'), bg='#f0f0f0', fg='#2c3e50')
         titulo.pack(pady=20)
         
         # Frame principal
@@ -30,20 +30,20 @@ class RedimensionadorImagenes:
         
         # Sección seleccionar imagen
         select_frame = tk.LabelFrame(main_frame, text="Seleccionar Imagen", 
-                                   font=('Arial', 12, 'bold'), bg='#f0f0f0', fg='#34495e')
+                                font=('Arial', 12, 'bold'), bg='#f0f0f0', fg='#34495e')
         select_frame.pack(fill='x', pady=10)
         
         # Botón seleccionar imagen
         btn_seleccionar = tk.Button(select_frame, text="📁 Seleccionar Imagen", 
-                                  command=self.seleccionar_imagen, bg='#3498db', 
-                                  fg='white', font=('Arial', 11), cursor='hand2',
-                                  relief='flat', padx=20, pady=10)
+                                command=self.seleccionar_imagen, bg='#3498db', 
+                                fg='white', font=('Arial', 11), cursor='hand2',
+                                relief='flat', padx=20, pady=10)
         btn_seleccionar.pack(pady=15)
         
         # Label para mostrar ruta
         self.label_ruta = tk.Label(select_frame, textvariable=self.imagen_path, 
-                                 bg='#f0f0f0', fg='#7f8c8d', font=('Arial', 9),
-                                 wraplength=500)
+                                bg='#f0f0f0', fg='#7f8c8d', font=('Arial', 9),
+                                wraplength=500)
         self.label_ruta.pack(pady=(0, 15))
         
         # Sección dimensiones
@@ -59,7 +59,7 @@ class RedimensionadorImagenes:
         tk.Label(input_frame, text="Ancho:", font=('Arial', 10), 
                 bg='#f0f0f0').grid(row=0, column=0, padx=10, sticky='e')
         entry_ancho = tk.Entry(input_frame, textvariable=self.ancho_var, 
-                              font=('Arial', 10), width=10, justify='center')
+                    font=('Arial', 10), width=10, justify='center')
         entry_ancho.grid(row=0, column=1, padx=5)
         tk.Label(input_frame, text="px", font=('Arial', 9), 
                 bg='#f0f0f0', fg='#7f8c8d').grid(row=0, column=2, padx=5)
@@ -68,7 +68,7 @@ class RedimensionadorImagenes:
         tk.Label(input_frame, text="Alto:", font=('Arial', 10), 
                 bg='#f0f0f0').grid(row=0, column=3, padx=10, sticky='e')
         entry_alto = tk.Entry(input_frame, textvariable=self.alto_var, 
-                             font=('Arial', 10), width=10, justify='center')
+                    font=('Arial', 10), width=10, justify='center')
         entry_alto.grid(row=0, column=4, padx=5)
         tk.Label(input_frame, text="px", font=('Arial', 9), 
                 bg='#f0f0f0', fg='#7f8c8d').grid(row=0, column=5, padx=5)
@@ -86,18 +86,18 @@ class RedimensionadorImagenes:
         
         for texto, ancho, alto in resoluciones:
             btn = tk.Button(presets_frame, text=texto, 
-                           command=lambda a=ancho, h=alto: self.set_resolution(a, h),
-                           bg='#e74c3c', fg='white', font=('Arial', 9),
-                           relief='flat', padx=10, pady=5, cursor='hand2')
+                command=lambda a=ancho, h=alto: self.set_resolution(a, h),
+                bg='#e74c3c', fg='white', font=('Arial', 9),
+                relief='flat', padx=10, pady=5, cursor='hand2')
             btn.pack(side='left', padx=5)
         
         # Preview frame (opcional)
         
         # Botón procesar
         btn_procesar = tk.Button(main_frame, text="✨ Redimensionar y Guardar", 
-                               command=self.procesar_imagen, bg='#27ae60', 
-                               fg='white', font=('Arial', 12, 'bold'), 
-                               cursor='hand2', relief='flat', pady=15)
+                        command=self.procesar_imagen, bg='#27ae60', 
+                        fg='white', font=('Arial', 12, 'bold'), 
+                        cursor='hand2', relief='flat', pady=15)
         btn_procesar.pack(pady=20)
         
         # Barra de progreso
@@ -180,9 +180,9 @@ class RedimensionadorImagenes:
                 self.progress_bar.pack_forget()
                 
                 messagebox.showinfo("Éxito", 
-                                  f"¡Imagen redimensionada exitosamente!\n"
-                                  f"Guardada como: {os.path.basename(archivo_salida)}\n"
-                                  f"Resolución: {ancho_deseado}x{alto_deseado}")
+                                f"¡Imagen redimensionada exitosamente!\n"
+                                f"Guardada como: {os.path.basename(archivo_salida)}\n"
+                                f"Resolución: {ancho_deseado}x{alto_deseado}")
             else:
                 self.progress_bar.stop()
                 self.progress_bar.pack_forget()
